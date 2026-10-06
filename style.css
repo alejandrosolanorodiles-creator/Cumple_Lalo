@@ -1,0 +1,619 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffca6b55, transparent 25%),
+        radial-gradient(circle at 80% 80%, #ff5c9a55, transparent 25%),
+        linear-gradient(135deg, #17133d, #44206b, #8c285f);
+
+    color: white;
+}
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.pantalla {
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+#portada {
+    position: relative;
+    overflow: hidden;
+}
+
+.portada-contenido {
+    position: relative;
+    z-index: 5;
+
+    width: 90%;
+    max-width: 800px;
+
+    text-align: center;
+
+    padding: 55px 30px;
+
+    border-radius: 30px;
+
+    background: #ffffff1c;
+
+    border: 1px solid #ffffff40;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 20px 60px #00000055;
+
+    animation: aparecer 1s ease;
+}
+
+.emoji-grande {
+    font-size: 80px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.introduccion {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.portada-contenido h1 {
+    font-size: clamp(35px, 7vw, 65px);
+
+    margin-bottom: 10px;
+
+    animation: brillo 2s infinite alternate;
+}
+
+.portada-contenido h2 {
+    font-size: clamp(35px, 7vw, 60px);
+
+    color: #ffd85c;
+
+    margin-bottom: 20px;
+
+    text-shadow: 0 0 20px #ffd85c99;
+}
+
+.edad {
+    font-size: 22px;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+button {
+    border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.portada-contenido button {
+    margin-top: 30px;
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    background: #ffd85c;
+    color: #382047;
+
+    font-size: 18px;
+
+    box-shadow: 0 8px 20px #00000044;
+}
+
+.portada-contenido button:hover {
+    transform: scale(1.08) translateY(-4px);
+}
+
+
+/* =========================
+   GLOBOS
+========================= */
+
+.globos span {
+    position: absolute;
+
+    font-size: 60px;
+
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.globos span:nth-child(1) {
+    left: 7%;
+    top: 15%;
+}
+
+.globos span:nth-child(2) {
+    right: 8%;
+    top: 20%;
+
+    animation-delay: 1s;
+}
+
+.globos span:nth-child(3) {
+    left: 15%;
+    bottom: 10%;
+
+    animation-delay: 2s;
+}
+
+.globos span:nth-child(4) {
+    right: 18%;
+    bottom: 12%;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================
+   CARTA
+========================= */
+
+.carta {
+    width: 100%;
+    max-width: 850px;
+
+    min-height: 80vh;
+
+    padding: 40px;
+
+    background: #fff9ed;
+
+    color: #3b2940;
+
+    border-radius: 25px;
+
+    box-shadow: 0 25px 70px #00000066;
+
+    animation: aparecer 0.8s ease;
+}
+
+
+/* =========================
+   TITULO
+========================= */
+
+.titulo-carta {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    color: #812b61;
+}
+
+.titulo-carta h2 {
+    font-size: 30px;
+}
+
+
+/* =========================
+   PAGINAS
+========================= */
+
+.pagina {
+    display: none;
+
+    animation: cambiarPagina 0.6s ease;
+}
+
+.pagina.activa {
+    display: block;
+}
+
+.pagina p {
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+    text-align: justify;
+}
+
+
+/* =========================
+   FOTOS
+========================= */
+
+.foto {
+    width: 80%;
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 25px #00000030;
+
+    transform: rotate(-1deg);
+
+    transition: 0.4s;
+}
+
+.foto:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.foto img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.foto.grande {
+    max-width: 600px;
+}
+
+
+/* =========================
+   FRASE
+========================= */
+
+.frase {
+    text-align: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #8c2d64;
+
+    margin: 25px;
+}
+
+
+/* =========================
+   CORAZON
+========================= */
+
+.corazon {
+    text-align: center;
+
+    font-size: 70px;
+
+    animation: latido 1.2s infinite;
+}
+
+
+/* =========================
+   FINAL DE CARTA
+========================= */
+
+.final-carta {
+    text-align: center;
+}
+
+.pastel {
+    font-size: 100px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.final-carta h2 {
+    font-size: 40px;
+
+    color: #812b61;
+
+    margin: 20px 0;
+}
+
+.te-quiero {
+    text-align: center !important;
+
+    font-size: 30px !important;
+
+    font-weight: bold;
+}
+
+.emojis-final {
+    font-size: 30px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   CONTROLES
+========================= */
+
+.controles {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #00000020;
+}
+
+.controles button {
+    padding: 12px 20px;
+
+    border-radius: 30px;
+
+    background: #812b61;
+
+    color: white;
+}
+
+.controles button:hover {
+    background: #a63c7c;
+
+    transform: translateY(-2px);
+}
+
+#numeroPagina {
+    font-weight: bold;
+
+    color: #812b61;
+}
+
+
+/* =========================
+   PANTALLA FINAL
+========================= */
+
+.final-contenido {
+    width: 90%;
+    max-width: 800px;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+    border-radius: 30px;
+
+    background: #ffffff1c;
+
+    border: 1px solid #ffffff40;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 25px 70px #00000055;
+
+    animation: aparecer 1s ease;
+}
+
+.numero-edad {
+    font-size: 100px;
+
+    font-weight: bold;
+
+    color: #ffd85c;
+
+    text-shadow: 0 0 25px #ffd85c99;
+}
+
+.emoji-final {
+    font-size: 70px;
+}
+
+.final-contenido h1 {
+    font-size: clamp(35px, 7vw, 65px);
+
+    margin: 15px 0;
+}
+
+.final-contenido > p {
+    font-size: 20px;
+
+    line-height: 1.6;
+}
+
+.fiesta {
+    font-size: 40px;
+
+    margin: 25px 0;
+}
+
+.mensaje-final {
+    font-size: 25px !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   CONFETI
+========================= */
+
+#confeti {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+.confeti-pieza {
+    position: absolute;
+
+    top: -30px;
+
+    animation: caer linear forwards;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes cambiarPagina {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flotar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes brillo {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}
+
+@keyframes latido {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes caer {
+    from {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .pantalla {
+        padding: 15px 10px;
+    }
+
+    .portada-contenido {
+        padding: 40px 20px;
+    }
+
+    .globos span {
+        font-size: 40px;
+    }
+
+    .carta {
+        padding: 25px 18px;
+    }
+
+    .titulo-carta h2 {
+        font-size: 22px;
+    }
+
+    .pagina p {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .foto {
+        width: 95%;
+    }
+
+    .foto img {
+        max-height: 350px;
+    }
+
+    .controles button {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .numero-edad {
+        font-size: 75px;
+    }
+
+    .final-contenido h1 {
+        font-size: 35px;
+    }
+}
